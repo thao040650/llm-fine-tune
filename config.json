@@ -1,0 +1,49 @@
+{
+  "model_name": "microsoft/DialoGPT-medium",
+  "dataset_path": "data/train.json",
+  "validation_dataset_path": null,
+  "output_dir": "fine_tuned_model",
+  
+  "num_train_epochs": 3,
+  "per_device_train_batch_size": 4,
+  "per_device_eval_batch_size": 4,
+  "gradient_accumulation_steps": 4,
+  "learning_rate": 2e-5,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "max_grad_norm": 1.0,
+  
+  "max_length": 512,
+  "padding_side": "left",
+  "truncation": true,
+  
+  "use_lora": true,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.1,
+  "lora_target_modules": ["c_attn", "c_proj"],
+  
+  "use_4bit": true,
+  "use_8bit": false,
+  
+  "save_strategy": "steps",
+  "save_steps": 500,
+  "eval_strategy": "steps",
+  "eval_steps": 500,
+  "logging_steps": 100,
+  "load_best_model_at_end": true,
+  "metric_for_best_model": "eval_loss",
+  "greater_is_better": false,
+  
+  "early_stopping_patience": 3,
+  "early_stopping_threshold": 0.001,
+  
+  "use_wandb": false,
+  "wandb_project": "llm-fine-tuning",
+  "wandb_run_name": null,
+  
+  "fp16": true,
+  "bf16": false,
+  "dataloader_num_workers": 4,
+  "remove_unused_columns": false
+}
